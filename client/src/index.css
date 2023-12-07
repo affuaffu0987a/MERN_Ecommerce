@@ -1,0 +1,669 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --Green: rgb(34 197 94);
+}
+
+html,
+body {
+  background-color: black;
+  color: white;
+  height: 100%;
+}
+
+.active {
+  color: whitesmoke;
+  /* border-bottom: 2px solid var(--Green); */
+}
+
+.navbar-list {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.humburger{
+  transform: scale(2.5);
+ 
+}
+.Cross-icon{
+  transform: scale(2);
+}
+
+/* .......................Home...................... */
+
+.home {
+  min-height: 50vh;
+  width: 100vw;
+  border-bottom-right-radius: 100px;
+}
+.home-btn{
+  border: 1px solid var(--Green);
+}
+.home-btn:hover{
+  border: 1px solid var(--Green);
+}
+.carousel-item img {
+  height: 100vh;
+}
+.Discount-Details{
+  mix-blend-mode: difference;
+}
+/* .................Categories......................... */
+
+
+
+/* ...........................addCart................... */
+.addCart {
+  min-height: 100vh;
+}
+.Card-inner{ 
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+.Card-inner::-webkit-scrollbar{
+  display: none !important;
+}
+
+.addCart button{
+  transition: transform ease-in .7s;
+}
+.addCart button:hover{
+  transform: scale(1.2);
+}
+
+.emptyCart{
+  width: 100%;
+  height: 50vh;
+}
+
+.AddCart-RemoveBtn{
+  color: var(--Green);
+  transform: scale(1.7);
+}
+.AddCart-Images{
+  height: 100px;
+  width: 200px;
+  margin: auto;
+}
+
+/* .......................ProductCard page...................  */
+
+.CartDetails {
+  padding: 2px 2px;
+  box-shadow: 0px 0px 1px var(--Green);
+  transition: transform ease .5s;
+  z-index: 10;
+  width: 100% !important;
+}
+.CartDetails a{
+  width: 100%;
+}
+
+#CartDetails{
+  padding: 2px 2px;
+  box-shadow: 0px 0px 1px var(--Green);
+}
+
+.CartDetails button{
+  border: 1px solid var(--Green);
+}
+
+
+#ProductCard {
+  min-height: 100vh;
+  margin-top: 1rem;
+}
+
+.ProductCard {
+  animation-name: movingcart;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+  width: 100%;
+}
+
+
+@keyframes movingcart{
+  0% {
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+.amimation-stop{
+  animation: none;
+}
+.CartDetails:hover{
+  transform: scale(1.1);
+  z-index: 15;
+}
+
+/* .......................Loader page...................... */
+
+.wrapper {
+  width: 200px;
+  height: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 15%;
+  transform-origin: 50%;
+  animation: circle7124 .5s alternate infinite ease;
+}
+
+@keyframes circle7124 {
+  0% {
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+
+  40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0%;
+  }
+}
+
+.circle:nth-child(2) {
+  left: 45%;
+  animation-delay: .2s;
+}
+
+.circle:nth-child(3) {
+  left: auto;
+  right: 15%;
+  animation-delay: .3s;
+}
+
+.shadow {
+  width: 20px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 62px;
+  transform-origin: 50%;
+  z-index: -1;
+  left: 15%;
+  filter: blur(1px);
+  animation: shadow046 .5s alternate infinite ease;
+}
+
+@keyframes shadow046 {
+  0% {
+    transform: scaleX(1.5);
+  }
+
+  40% {
+    transform: scaleX(1);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scaleX(.2);
+    opacity: .4;
+  }
+}
+
+.shadow:nth-child(4) {
+  left: 45%;
+  animation-delay: .2s
+}
+
+.shadow:nth-child(5) {
+  left: auto;
+  right: 15%;
+  animation-delay: .3s;
+}
+
+
+/* ......................Singleitems page.............. */
+
+.Singleitems {
+  min-height: 50vh;
+}
+
+.singleItem-details {
+  width: 100%;
+}
+
+.sigleitem-btn {
+  width: 200%;
+  transition: all ease-in .4s;
+}
+
+
+.Images {
+  transition: all ease-in-out .4s;
+}
+
+.Images:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 2px #bebebe, 0px 0px 2px var(--Green);
+}
+
+.productName {
+  font-size: 4rem;
+}
+
+.LikesProducts{
+  transition: transform ease .5s;
+  width: 33%;
+  box-shadow: 0px 0px 1px var(--Green);
+}
+
+.LikesProducts:hover{
+  transform: scale(1.1);
+}
+
+.maylike-products-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 3rem;
+}
+
+.track {
+  position: relative;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 15s linear infinite;
+}
+@keyframes marquee{
+  0% {
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+/* ...................Search................... */
+/* this is a recreation of twitter search in css */
+.form {
+  --input-text-color: #fff;
+  --input-bg-color: #283542;
+  --focus-input-bg-color: transparent;
+  --text-color: #949faa;
+  --active-color: rgb(34 197 94);
+  --width-of-input: 100%;
+  --inline-padding-of-input: 1.2em;
+  --gap: 0.9rem;
+}
+
+/* form style */
+.form {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: var(--width-of-input);
+  position: relative;
+  isolation: isolate;
+}
+
+/* a fancy bg for showing background and border when focus. */
+.fancy-bg {
+  position: absolute;
+  width: 100%;
+  inset: 0;
+  background: var(--input-bg-color);
+  border-radius: 30px;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* label styling */
+label {
+  width: 100%;
+  padding: 0.8em;
+  height: 40px;
+  padding-inline: var(--inline-padding-of-input);
+  display: flex;
+  align-items: center;
+}
+
+.search,
+.close-btn {
+  position: absolute;
+}
+
+/* styling search-icon */
+.search {
+  fill: var(--text-color);
+  left: var(--inline-padding-of-input);
+}
+
+/* svg -- size */
+svg {
+  width: 17px;
+  display: block;
+}
+
+/* styling of input */
+.input {
+  color: var(--input-text-color);
+  width: 100%;
+  margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+  background: none;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-color)
+}
+
+/* input background change in focus */
+.input:focus~.fancy-bg {
+  border: 1px solid var(--active-color);
+  background: var(--focus-input-bg-color);
+}
+
+/* search icon color change in focus */
+.input:focus~.search {
+  fill: var(--active-color);
+}
+
+/* showing close button when typing */
+.input:valid~.close-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+  -webkit-transition-delay: 9999s;
+}
+
+/* ............Footer............. */
+.footer {
+  box-shadow: 0px 0px 3px var(--Green);
+}
+
+.footer input {
+  border: 1px solid var(--Green);
+}
+
+/* ..........contact-page.............. */
+
+.contact-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.container {
+  margin-top: 6rem;
+  text-align: center;
+}
+
+.contact-form {
+  width: 80%;
+  margin: auto;
+}
+
+.contact-inputs {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  gap: 3rem;
+}
+
+.contact-inputs button{
+  transition: transform ease-in .7s;
+}
+
+.contact-inputs button:hover{
+  transform: scale(1.2);
+}
+
+.contact-inputs input{
+  padding: 10px;
+  outline: none;
+  background-color: #283542;
+  border: 1px solid #283542 ;
+}
+
+.contact-inputs input:focus{
+  border: 1px solid var(--Green);
+}
+
+textarea{
+  background-color: #283542;
+  border: 1px solid #283542 ;
+}
+
+textarea:focus{
+  border: 1px solid var(--Green);
+}
+
+/* ...........................AllProducts page............... */
+
+.next-btn{
+  animation-name: arrowMove;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes arrowMove{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(50%);
+  }
+}
+
+/* .............Signup-page....................... */
+
+.Signup-page{
+  min-height: 100vh;
+}
+
+.SignUp-Form input{
+  outline: none;
+  background-color: #283542;
+  border: 1px solid #283542 ;
+}
+.SignUp-Form input:focus{
+  border: 1px solid var(--Green);
+}
+
+/* ................Error-page................. */
+
+.Error-page{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* ..................Payment.......... */
+.Payment-Message{
+  height: 100vh;
+}
+
+/* ................Responsive..................... */
+
+@media(max-width:700px){
+  .footer-inner{
+    flex-wrap: wrap;
+    gap: 1.5rem !important;
+  }
+  .footer-description{
+    width: 100%;
+    padding: 0;
+  }
+  
+  .Search-bar{
+    width: 100%;
+  }
+
+  .copyright{
+    padding: 0 15px;
+  }
+  .navbar{
+    padding-left: .5rem;
+  }
+  .logo{
+    gap: 0rem !important;
+  }
+  
+  .services{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 0px 10px;
+    /* width: 100% !important; */
+    gap: 0;
+  }
+
+  .container{
+    flex-wrap: wrap;
+  }
+  .contact-form {
+    width: 100%;
+  }
+  .About_Us{
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  #ProductCard{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    gap: 2px !important;
+    padding: 0px 5px;
+  }
+
+  .ProductCard{
+    width: 360%;
+  }
+ 
+  .maylike-products-container{
+    width: 200vh;
+  }
+  
+  .LikesProducts img{
+    width: 100%;
+  }
+  .singleItem-details {
+    flex-wrap: wrap;
+    margin: 6rem 1rem !important;
+    padding: 0% !important;
+}
+
+.singleProduct-descriptions{
+  width: 100%;
+  padding: 0% !important;
+}
+.SingleProduct-img{
+  width: 100%;
+}
+
+
+.addCart h1{
+  font-size: 1.3rem;
+}
+.emptyCart{
+  width: 80%;
+}
+.Cart-Detials{
+  flex-wrap: wrap;
+}
+
+.total_Price{
+  padding: 0% !important;
+}
+
+.head, .head3{
+  font-size: 2rem !important;
+}
+.head2{
+  font-size: 3rem !important;
+}
+.para2{
+  font-size: 1rem !important;
+}
+}
+
+@media(max-width:1000px){
+  .About_Us{
+    width: 100%;
+  }
+  .contact-page{
+    min-height: 70vh;
+  }
+ 
+  .crousel-img{
+    height: 70vh !important;
+  }
+  .carousel-contain{
+    width: 100%;
+    padding: 0px 18px;
+  }
+  .carousel-contain h1{
+    font-size: 1.75rem !important;
+  }
+
+ 
+  .Singleitems{
+    width: 100%;
+  }
+  .singleItem-details{
+    padding: 0% !important;
+    margin-top: 10rem !important;
+    gap: 1.8rem;
+  }
+  .singleProduct-descriptions{
+    padding: 0% !important;
+  }
+
+  .Side-Cart{
+    width: 100%;
+  }
+  .AddCart-btn {
+    width: 50%;
+}
+
+}
+
+@media only screen and (min-width:750px) and (max-width:1025px){
+  .ProductCard{
+    width: 200%;
+  }
+}
