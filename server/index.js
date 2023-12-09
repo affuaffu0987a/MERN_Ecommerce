@@ -6,7 +6,7 @@ const {Subscribed, UserQueries} = require("./Database/db")
 const stripe = require("stripe")("sk_test_51OJGQsSD9gzrVkAprdcoG8N210RMuTPUzwmQO7q8kygdqMypxm6lrmbBan0U9nKAnB7xZdquVCqZeah5TekpJzu500J4W6h6bc")
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: '',
     method: "GET,POST,PUT,PATCH,DELETE,HEAD",
     credentials: true
 }
@@ -43,7 +43,7 @@ app.post("/create-checkout-session", async (req, res) => {
     }
 })
 
-app.post("/v1/subscribe", async (req, res) => {
+app.post("/subscribe", async (req, res) => {
     try {
         const { email } = req.body;
         const emailExist = await Subscribed.findOne({ email })
@@ -60,7 +60,7 @@ app.post("/v1/subscribe", async (req, res) => {
     }
 })
 
-app.post("/v1/query", async (req, res) => {
+app.post("/query", async (req, res) => {
     try {
         const {username,email,message} = req.body;
         const UsersQuery = await UserQueries.create({
