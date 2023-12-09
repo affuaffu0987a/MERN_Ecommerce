@@ -6,7 +6,7 @@ const {Subscribed, UserQueries} = require("./Database/db")
 const stripe = require("stripe")("sk_test_51OJGQsSD9gzrVkAprdcoG8N210RMuTPUzwmQO7q8kygdqMypxm6lrmbBan0U9nKAnB7xZdquVCqZeah5TekpJzu500J4W6h6bc")
 
 const corsOptions = {
-    origin: '',
+    origin: 'https://mern-ecommerce-clientside.vercel.app',
     method: "GET,POST,PUT,PATCH,DELETE,HEAD",
     credentials: true
 }
@@ -34,8 +34,8 @@ app.post("/create-checkout-session", async (req, res) => {
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: 'payment',
-            success_url: "http://localhost:5173/v1/payment/success",
-            cancel_url: "http://localhost:5173/v1/payment/cancel",
+            success_url: "https://mern-ecommerce-clientside.vercel.app/v1/payment/success",
+            cancel_url: "https://mern-ecommerce-clientside.vercel.app/v1/payment/cancel",
         });
         res.json({ id: session.id })
     } catch (err) {
