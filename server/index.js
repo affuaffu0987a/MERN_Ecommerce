@@ -53,7 +53,7 @@ app.post("/v1/subscribe", async (req, res) => {
         const createUserSubs = await Subscribed.create({
             email
         })
-        res.status(200).json({ msg: "Successfull Subscribed" })
+        res.status(200).json({ msg: "Subscribed Successfull" })
     }
     catch (err) {
         res.send(err)
