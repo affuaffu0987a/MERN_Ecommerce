@@ -18,7 +18,7 @@ const Footer = () => {
     const handelForm= async(e)=>{
         e.preventDefault()
        try{
-        const response = await fetch("https://shopies-ecommerce-api.vercel.app/subscribe",{
+        const response = await fetch("https://shopies-ecommerce-api.vercel.app/v1/subscribe",{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

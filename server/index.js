@@ -11,17 +11,10 @@ const corsOptions = {
     credentials: true
 }
 
-app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*'); 
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, HEAD');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    next();
-});
-
 app.use(cors(corsOptions))
 app.use(express.json())
 
-app.post("/create-checkout-session", async (req, res) => {
+app.post("/payment/create-checkout-session", async (req, res) => {
     try {
         const { productsCards, totalPrice, Qty } = req.body
         const lineItems = productsCards.map((product) => {
@@ -50,7 +43,7 @@ app.post("/create-checkout-session", async (req, res) => {
     }
 })
 
-app.post("/subscribe", async (req, res) => {
+app.post("/v1/subscribe", async (req, res) => {
     try {
         const { email } = req.body;
         const emailExist = await Subscribed.findOne({ email })
@@ -67,7 +60,7 @@ app.post("/subscribe", async (req, res) => {
     }
 })
 
-app.post("/query", async (req, res) => {
+app.post("/v1/query", async (req, res) => {
     try {
         const {username,email,message} = req.body;
         const UsersQuery = await UserQueries.create({

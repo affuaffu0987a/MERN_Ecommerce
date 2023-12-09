@@ -25,7 +25,7 @@ const Contact = () => {
   const handleForm = async(e)=>{
     e.preventDefault();
     try{
-      const response = await fetch("https://shopies-ecommerce-api.vercel.app/query",{
+      const response = await fetch("https://shopies-ecommerce-api.vercel.app/v1/query",{
         method:'POST',
         headers:{
           "Content-Type":"application/json"
