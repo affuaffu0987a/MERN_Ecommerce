@@ -6,7 +6,7 @@ const {Subscribed, UserQueries} = require("./Database/db")
 const stripe = require("stripe")("sk_test_51OJGQsSD9gzrVkAprdcoG8N210RMuTPUzwmQO7q8kygdqMypxm6lrmbBan0U9nKAnB7xZdquVCqZeah5TekpJzu500J4W6h6bc")
 
 const corsOptions = {
-    origin: 'https://mern-ecommerce-clientside.vercel.app',
+    origin: 'https://shopies-ecommerce-ui.vercel.app',
     method: ["GET","POST","PUT","PATCH","DELETE","HEAD"],
     credentials: true
 }
