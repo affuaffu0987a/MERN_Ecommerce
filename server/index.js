@@ -7,9 +7,16 @@ const stripe = require("stripe")("sk_test_51OJGQsSD9gzrVkAprdcoG8N210RMuTPUzwmQO
 
 const corsOptions = {
     origin: 'https://mern-ecommerce-clientside.vercel.app',
-    method: "GET,POST,PUT,PATCH,DELETE,HEAD",
+    method: ["GET","POST","PUT","PATCH","DELETE","HEAD"],
     credentials: true
 }
+
+// app.use(function(req, res, next) {
+//     res.header('Access-Control-Allow-Origin', '*'); 
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, HEAD');
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+//     next();
+// });
 
 app.use(cors(corsOptions))
 app.use(express.json())
