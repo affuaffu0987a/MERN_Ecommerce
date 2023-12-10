@@ -11,7 +11,7 @@ const AddCart = () => {
     const MakePayment = async()=>{
         try{
         const stripe = await loadStripe("pk_test_51OJGQsSD9gzrVkApzPM9GSgd0vAPUcFJC6WGDsv2bfVGYjCvLpRRCGK7DIjNE11tx8rYQUqOTsES0DYFd27ExK8G00vQCeZlHk")
-        const response = await fetch("https://shopies-ecommerce-api.vercel.app//payment/create-checkout-session",{
+        const response = await fetch("https://shopies-ecommerce-api.vercel.app/payment/create-checkout-session",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
