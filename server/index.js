@@ -7,8 +7,12 @@ const stripe = require("stripe")("sk_test_51OJGQsSD9gzrVkAprdcoG8N210RMuTPUzwmQO
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'https://shopies-ecommerce-api.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+
+    if(req.method === 'OPTIONS'){
+        return res.sendStatus(200);
+    }
     next();
 });
 
