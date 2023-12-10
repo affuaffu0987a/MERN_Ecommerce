@@ -7,8 +7,8 @@ const stripe = require("stripe")("sk_test_51OJGQsSD9gzrVkAprdcoG8N210RMuTPUzwmQO
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'https://shopies-ecommerce-api.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     if(req.method === 'OPTIONS'){
         return res.sendStatus(200);
@@ -39,8 +39,8 @@ app.post("/payment/create-checkout-session", async (req, res) => {
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: 'payment',
-            success_url: "https://mern-ecommerce-clientside.vercel.app/v1/payment/success",
-            cancel_url: "https://mern-ecommerce-clientside.vercel.app/v1/payment/cancel",
+            success_url: "https://shopies-ecommerce-api.vercel.app/v1/payment/success",
+            cancel_url: "https://shopies-ecommerce-api.vercel.app/v1/payment/cancel",
         });
         res.json({ id: session.id })
     } catch (err) {
