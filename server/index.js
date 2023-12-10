@@ -1,22 +1,16 @@
 require('dotenv').config()
 const express = require("express")
 const app = express()
-// const cors = require('cors')
+const cors = require('cors')
 const {Subscribed, UserQueries} = require("./Database/db")
 const stripe = require("stripe")("sk_test_51OJGQsSD9gzrVkAprdcoG8N210RMuTPUzwmQO7q8kygdqMypxm6lrmbBan0U9nKAnB7xZdquVCqZeah5TekpJzu500J4W6h6bc")
 
-app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'https://shopies-ecommerce-api.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-    if(req.method === 'OPTIONS'){
-        return res.sendStatus(200);
-    }
-    next();
-});
-
-// app.use(cors(corsOptions))
+const corsOptions = {
+    origin: 'https://shopies-ecommerce-ui.vercel.app',
+    method: ["GET","POST","PUT","PATCH","DELETE","HEAD"],
+    credentials: true
+}
+app.use(cors(corsOptions))
 app.use(express.json())
 
 app.post("/payment/create-checkout-session", async (req, res) => {
@@ -39,8 +33,8 @@ app.post("/payment/create-checkout-session", async (req, res) => {
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: 'payment',
-            success_url: "https://shopies-ecommerce-api.vercel.app/v1/payment/success",
-            cancel_url: "https://shopies-ecommerce-api.vercel.app/v1/payment/cancel",
+            success_url: "https://shopies-ecommerce-ui.vercel.app/v1/payment/success",
+            cancel_url: "https://shopies-ecommerce-ui.vercel.app/v1/payment/cancel",
         });
         res.json({ id: session.id })
     } catch (err) {
