@@ -1,17 +1,18 @@
 require('dotenv').config()
 const express = require("express")
 const app = express()
-const cors = require('cors')
+// const cors = require('cors')
 const {Subscribed, UserQueries} = require("./Database/db")
 const stripe = require("stripe")("sk_test_51OJGQsSD9gzrVkAprdcoG8N210RMuTPUzwmQO7q8kygdqMypxm6lrmbBan0U9nKAnB7xZdquVCqZeah5TekpJzu500J4W6h6bc")
 
-const corsOptions = {
-    origin: 'https://shopies-ecommerce-ui.vercel.app',
-    method: ["GET","POST","PUT","PATCH","DELETE","HEAD"],
-    credentials: true
-}
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'https://shopies-ecommerce-api.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    next();
+});
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 app.use(express.json())
 
 app.post("/payment/create-checkout-session", async (req, res) => {
