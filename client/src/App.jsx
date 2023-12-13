@@ -21,8 +21,8 @@ const App = () => {
         <Route path='/:id' element={<SingleProducts/>}/>
         </Route>
         <Route path='*' element={<Error/>} />
-        <Route path='/v1/payment/success'  element ={<PaySuccess/>}/>
-        <Route path='/v1/payment/cancel' element={<PayCancel/>}/>
+        <Route path='/'  element ={<PaySuccess/>}/>
+        <Route path='/' element={<PayCancel/>}/>
       </Routes>
     </BrowserRouter>
   )
