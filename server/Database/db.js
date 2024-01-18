@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://127.0.0.1:27017/CustomerDetails")
+const MongoConnectionURL = 'mongodb+srv://aftabkhan123:123aftab098@cluster0.xbti2tw.mongodb.net/CustomerDetails?retryWrites=true&w=majority'
+mongoose.connect(MongoConnectionURL)
 
 const SubsUserSchema = mongoose.Schema({
     email: {
