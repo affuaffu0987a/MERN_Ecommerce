@@ -2,12 +2,13 @@ import React from 'react'
 import { useGlobalContext } from '../Contextapi/Context'
 import { MdOutlineShoppingBag,MdDeleteForever } from "react-icons/md";
 import { FaAngleLeft } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {loadStripe} from '@stripe/stripe-js';
 
 
 const AddCart = () => {
     const {productsCards, totalPrice, Qty, dispatch, setCart,DiscountPrices} = useGlobalContext()
+    const navigate = useNavigate()
     const MakePayment = async()=>{
         try{
         const stripe = await loadStripe("pk_test_51OJGQsSD9gzrVkApzPM9GSgd0vAPUcFJC6WGDsv2bfVGYjCvLpRRCGK7DIjNE11tx8rYQUqOTsES0DYFd27ExK8G00vQCeZlHk")
@@ -23,6 +24,8 @@ const AddCart = () => {
         const result = stripe.redirectToCheckout({
             sessionId:session.id
         })
+        navigate(session.success)
+        navigate(session.cancel)
       }
     }catch(err){
         console.log(err);
