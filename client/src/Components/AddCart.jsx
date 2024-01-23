@@ -19,12 +19,14 @@ const AddCart = () => {
             },
             body:JSON.stringify({productsCards,totalPrice,Qty})
         });
-        if(response.ok){
         const session = await response.json()
+        if(response.ok){
         const result = stripe.redirectToCheckout({
             sessionId:session.id
         })
         navigate(session.success)
+      }
+      else{
         navigate(session.cancel)
       }
     }catch(err){
