@@ -33,10 +33,10 @@ app.post("/payment/create-checkout-session", async (req, res) => {
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: 'payment',
-            success_url: "https://shopies-ecommerce-ui.vercel.app",
-            cancel_url: "https://shopies-ecommerce-ui.vercel.app",
+            success_url: "https://shopies-ecommerce-ui.vercel.app/v2/payment/success",
+            cancel_url: "https://shopies-ecommerce-ui.vercel.app/v2/payment/cancel",
         });
-        res.json({ id: session.id })
+        res.json({ id: session.id})
     } catch (err) {
         res.send(err)
     }
