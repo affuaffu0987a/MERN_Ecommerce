@@ -4,6 +4,7 @@ import { MdOutlineShoppingBag,MdDeleteForever } from "react-icons/md";
 import { FaAngleLeft } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
 import {loadStripe} from '@stripe/stripe-js';
+import Swal from 'sweetalert2'
 
 
 const AddCart = () => {
@@ -24,10 +25,18 @@ const AddCart = () => {
         const result = stripe.redirectToCheckout({
             sessionId:session.id
         })
-        navigate(session.success)
+        Swal.fire({
+            title: "Thank you",
+            text: "Payment Successfull",
+            icon: "success"
+          })
       }
       else{
-        navigate(session.cancel)
+        Swal.fire({
+            title: " Oops!",
+            text: "Payment Cancel",
+            icon: "error"
+          })
       }
     }catch(err){
         console.log(err);
