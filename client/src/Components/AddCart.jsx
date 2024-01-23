@@ -25,18 +25,6 @@ const AddCart = () => {
         const result = stripe.redirectToCheckout({
             sessionId:session.id
         })
-        Swal.fire({
-            title: "Thank you",
-            text: "Payment Successfull",
-            icon: "success"
-          })
-      }
-      else{
-        Swal.fire({
-            title: " Oops!",
-            text: "Payment Cancel",
-            icon: "error"
-          })
       }
     }catch(err){
         console.log(err);
