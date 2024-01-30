@@ -18,7 +18,7 @@ const SingleProducts = () => {
   const [Img, setImg] = useState(0)
   const [SingleItems, setSingleItems] = useState([])
   const [SingleCategory, setCategory] = useState("")
-  const { dispatch, TotalProducts, ShowCart, setCart, isLoader, setLoader,DiscountPrices} = useGlobalContext()
+  const { dispatch, TotalProducts, ShowCart, setCart, isLoader, setLoader,DiscountPrices,productsCards} = useGlobalContext()
 
   const BuyProudct = async()=>{
     try{
@@ -28,7 +28,7 @@ const SingleProducts = () => {
         headers:{
             "Content-Type":"application/json"
         },
-        body:JSON.stringify({productsCards,totalPrice,Qty})
+        body:JSON.stringify({productsCards})
     });
     const session = await response.json()
     if(response.ok){

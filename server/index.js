@@ -15,7 +15,7 @@ app.use(express.json())
 
 app.post("/payment/create-checkout-session", async (req, res) => {
     try {
-        const { productsCards, totalPrice, Qty } = req.body
+        const { productsCards } = req.body
         const lineItems = productsCards.map((product) => {
             return {
                 price_data: {

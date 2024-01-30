@@ -16,7 +16,7 @@ const AddCart = () => {
             headers:{
                 "Content-Type":"application/json"
             },
-            body:JSON.stringify({productsCards,totalPrice,Qty})
+            body:JSON.stringify({productsCards})
         });
         const session = await response.json()
         if(response.ok){
