@@ -7,6 +7,7 @@ import Rating from './Rating';
 import Loader from './Loader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {loadStripe} from '@stripe/stripe-js';
 
 const URL3 = "https://dummyjson.com/products";
 
@@ -18,6 +19,28 @@ const SingleProducts = () => {
   const [SingleItems, setSingleItems] = useState([])
   const [SingleCategory, setCategory] = useState("")
   const { dispatch, TotalProducts, ShowCart, setCart, isLoader, setLoader,DiscountPrices} = useGlobalContext()
+
+  const BuyProudct = async()=>{
+    try{
+    const stripe = await loadStripe("pk_test_51OJGQsSD9gzrVkApzPM9GSgd0vAPUcFJC6WGDsv2bfVGYjCvLpRRCGK7DIjNE11tx8rYQUqOTsES0DYFd27ExK8G00vQCeZlHk")
+    const response = await fetch("https://shopies-ecommerce-api.vercel.app/payment/create-checkout-session",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({productsCards,totalPrice,Qty})
+    });
+    const session = await response.json()
+    if(response.ok){
+    const result = stripe.redirectToCheckout({
+        sessionId:session.id
+    })
+    console.log(result);
+  }
+}catch(err){
+    console.log(err);
+}
+}
 
   const getSingleproducts = async (url) => {
     try {
@@ -120,7 +143,7 @@ const SingleProducts = () => {
                 </div>
                 <div className='flex w-full gap-5 '>
                   <button className='sigleitem-btn px-3 py-2  border border-green-500 text-xl hover:scale-110' onClick={()=> singleCartItems(item,finalPrice)}>Add to Cart</button>
-                  <button className='sigleitem-btn px-3  py-2 border border-green-500  bg-green-500 text-xl hover:scale-110' onClick={()=>setCart(true)}>Buy Now</button>
+                  <button className='sigleitem-btn px-3  py-2 border border-green-500  bg-green-500 text-xl hover:scale-110' onClick={BuyProudct}>Buy Now</button>
                 </div>
               </div>
             </div>
